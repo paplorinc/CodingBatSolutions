@@ -1,0 +1,19 @@
+package logic_1;
+
+import java.util.*;
+
+/**
+ * Given a day of the week encoded as 0=Sun, 1=Mon, 2=Tue, ...6=Sat, and a boolean indicating if we are on vacation, return a string of the form "7:00" indicating when the alarm clock should ring. Weekdays, the alarm should be "7:00" and on the weekend it should be "10:00". Unless we are on vacation -- then on weekdays it should be "10:00" and weekends it should be "off".
+ * Source: http://codingbat.com/prob/p160543
+ */
+public class AlarmClock {
+  public String alarmClock(int day, boolean vacation) {
+    if (vacation)
+      return isWeekend(day) ? "off" : "10:00";
+    else
+      return isWeekend(day) ? "10:00" : "7:00";
+  }
+  
+  boolean isWeekend(int day) { return day == 0 || day == 6; }
+}
+
